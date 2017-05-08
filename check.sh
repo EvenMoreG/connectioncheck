@@ -23,7 +23,7 @@ do
   fi
 
   if [[ $sleepInterval == "random" ]]; then
-    sleep $(($RANDOM % 10))
+    sleep $(($RANDOM % 30))
   else
     sleep $sleepInterval
   fi
