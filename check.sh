@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ "$#" -eq  "0" ]]; then
-  sleepInterval=10
+  sleepInterval="random"
 else
   sleepInterval=$1
 fi
@@ -21,5 +21,10 @@ do
   else
       echo \{\"timestamp\":\"$(date -Iseconds)\", \"online\":false\}  | tee -a $logFile
   fi
-  sleep $sleepInterval
+
+  if [[ $sleepInterval == "random" ]]; then
+    sleep $(($RANDOM % 10))
+  else
+    sleep $sleepInterval
+  fi
 done
